@@ -14,7 +14,4 @@ export rwio_nodeformation_rescaled, rwio_largeX, rwio_largeT, rwio_Painleve, rwi
 export vfromTw, vfromXT, wfromXT, Tmax_givenX, Xmax_givenT, XfromTw
 
 
-
-# greet() = print("Hello World!")
-
 end # module RogueWaveInfiniteNLS
