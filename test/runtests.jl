@@ -90,17 +90,17 @@ end
     @test abs(psival_Pain - psival_largeX) < 1e-10
 end
 
-# @testset "RogueWaveInfiniteNLS.jl: Painlevé vs Large-T test" begin
-#     atest = 1
-#     btest = -1+3im
-#     Xtest = 400
-#     vtest = VCRIT*1.01
-#     Ttest = TfromXv(Xtest,vtest)
-#     wtest = wfromXT(Xtest,Ttest)
-#     psival_Pain = rwio_Painleve(Xtest,vtest, atest, btest, LARGEX_PTS)
-#     psival_largeT = rwio_largeT(Ttest, wtest, atest, btest, LARGET_PTS)
-#     @test abs(psival_Pain - psival_largeT) < 1e-10
-# end
+@testset "RogueWaveInfiniteNLS.jl: Painlevé vs Large-T test" begin
+    atest = 1-2im
+    btest = 3+4im
+    Ttest = 400
+    wtest = WCRIT*0.95
+    Xtest=XfromTw(Ttest,wtest)
+    vtest=vfromXT(Xtest,Ttest)
+    psival_Pain = rwio_Painleve(Xtest,vtest, atest, btest, LARGEX_PTS)
+    psival_largeT = rwio_largeT(Ttest, wtest, atest, btest, LARGET_PTS)
+    @test abs(psival_Pain - psival_largeT) < 1e-10
+end
 
 @testset "RogueWaveInfiniteNLS.jl: The symmetry used in the 2nd quadrant" begin
     atest = 2+4im

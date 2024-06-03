@@ -173,8 +173,11 @@ function psi_largeT(X,T,a,b,β,numpts::Integer)
 end
 
 function psi(X,T,a,b,β)
-     # This implements contour rescaling (without changing the solution) in the
-    # no-deformation setting for moderate values of T. We divide the circle jump
+    if T>125000
+        println("T is too large. Accuracy may be lost.")
+    end
+    # This implements contour rescaling (without changing the solution) in the
+    # no-deformation setting for T<=8. We divide the circle jump
     # by sqrt(T) so that the term T*λ^2 in the phase behaves as if T=1.
     Xsc = β*X
     Tsc = β^2*T
@@ -182,12 +185,12 @@ function psi(X,T,a,b,β)
     # w = wfromXT(abs(Xsc), abs(Xsc))
     # Never pass in the rescaled X,T values. The underlying routines work with those.
     if Xsc^2 + Tsc^2 <= 4.
-        # In a small disk, so no deformation needed.
+        # (X,T) is in a small disk, so no deformation needed.
         # println("No deformation")
         return psi_nodeformation_rescaled(X, T, a, b, β, NODEF_PTS)
     elseif abs(Tsc)<=8.
         # Below the level T=8. No deformation is used in the large-T domain.
-        # But the large-X deformation is employed.
+        # But the large-X deformation is employed since this region is a horizontal strip.
         if (v>VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)
             # println("Below T=8 but no deformation.")
             psi_nodeformation_rescaled(X, T, a, b, β, NODEF_PTS)
@@ -201,7 +204,8 @@ function psi(X,T,a,b,β)
     else
         # Above the level T=8. All deformations are employed
         # But the large-X deformation is employed.
-        if (v>VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)
+        # if (v>VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)
+        if (v>VCRIT) && (w>0.98*WCRIT)
             # println("Above T=8 and large-T deformation.")
             psi_largeT(X, T, a, b, β, LARGET_PTS)
         elseif (v<VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)

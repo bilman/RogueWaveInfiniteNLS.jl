@@ -816,7 +816,7 @@ function rwio_largeT(T,w,a,b, npts::Integer)
     argZ0 = angle_z0z1(w)
      # Radii of small disks
     # radZ0 = min(0.5/(1+abs(T)^(2/9)), 0.3*abs(Z1-Z0), 0.5)
-    radZ0 = min(2/(1+abs(T)^(2/9)), 0.3*abs(Z1-Z0), 0.25)
+    radZ0 = min(2.5/(1+abs(T)^(2/9)), 0.3*abs(Z1-Z0), 0.25)
     # radZ1 = min(2/(1+abs(T)^(1/6)), 0.3*abs(Z1-Z0), 0.25)
     # radZ1 = min(0.5/(1+abs(T)^(1/6)), 0.3*abs(Z1-Z0), 0.5)
 
