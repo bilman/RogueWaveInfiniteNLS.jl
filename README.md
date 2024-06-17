@@ -36,6 +36,6 @@ using LaTeXStrings
 abs_outpsiX = abs.(outpsiX)
 plot(Xlist, abs_outpsiX, label=L"|\Psi(X,0,a=0.8i,b=1,\beta=1)|", xlabel=L"X", ylabel=L"|\Psi|", legend=:topright, linewidth=2.5, linecolor="darkblue")
 ```
-![What is this](sample_plot.png)
+![Rogue wave of infinite order](sample_plot.png)
 
 
