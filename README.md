@@ -39,3 +39,5 @@ plot(Xlist, abs_outpsiX, label=L"|\Psi(X,0,a=0.8i,b=1,\beta=1)|", xlabel=L"X", y
 ![Rogue wave of infinite order](sample_plot.png)
 
 
+## Acknowledgement
+This work is supported by the National Science Foundation of the United States under the award NSF DMS-2108029.
