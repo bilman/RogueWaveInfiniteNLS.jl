@@ -1,5 +1,5 @@
 # RogueWaveInfiniteNLS.jl
-Julia package for computing the rogue waves of infinite order for the focusing nonlinear Schrodinger equation.
+Julia package for computing the general rogue waves of infinite order for the focusing nonlinear Schrodinger equation.
 This is a special solution of the focusing nonlinear equation denoted by $\Psi(X,T;\mathbf{G},\beta)$, whose exact and asymptotic properties (in different regimes where $(X,T)\in\mathbb{R}^2$ becomes large) were studied recently in the manuscript *Asymptotic properties of general rogue waves of infinite order* [Bilman&Miller, 2024].
 This solution depends parametrically on a $2\times 2$ matrix $\mathbf{G}$ and a scalar $\beta>0$. The matrix $\mathbf{G}$ is given by 
 ```math
