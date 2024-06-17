@@ -29,10 +29,13 @@ using RogueWaveInfiniteNLS
 outpsiX = pmap(compute_psi_slice, Xlist)
 ```
 
-The variable `outpsiX` holds a vector of (complex) values of $\Psi(X,T=0,a=0.8i,b=1,\beta=1)$ for $-16\leq X \leq 16$ with a mesh-size of $dX=0.05$. Then one can plot, say, the absolute value of the compute solution via
+The variable `outpsiX` holds a vector of (complex) values of $\Psi(X,T=0,a=0.8i,b=1,\beta=1)$ for $-16\leq X \leq 16$ with a mesh-size of $dX=0.05$. Then one can plot, say, the absolute value of the computed solution via
 ```code
 using Plots
 using LaTeXStrings
 abs_outpsiX = abs.(outpsiX)
-plot(Xlist, abs_outpsiX, label=L"|\Psi(X,0,a=0.8i,b=1,\beta=1)|", xlabel=L"X", ylabel=L"|\Psi|", legend=:topright, linewidth=2)
+plot(Xlist, abs_outpsiX, label=L"|\Psi(X,0,a=0.8i,b=1,\beta=1)|", xlabel=L"X", ylabel=L"|\Psi|", legend=:topright, linewidth=2.5, linecolor="darkblue")
 ```
+![What is this](sample_plot.png)
+
+
