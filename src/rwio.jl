@@ -174,7 +174,8 @@ end
 
 function psi(X,T,a,b,β)
     if T>125000
-        println("T is too large. Accuracy may be lost.")
+        println("T is too large. Accuracy will be lost.")
+        return()
     end
     # This implements contour rescaling (without changing the solution) in the
     # no-deformation setting for T<=8. We divide the circle jump

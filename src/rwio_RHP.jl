@@ -198,7 +198,7 @@ function rwio_nodeformation_rescaled_RHP(X,T,a,b,npts::Integer)
     if abs(T)<=1.
         rad = 1
     else
-        rad = (2/sqrt(abs(T)))
+        rad = 1/sqrt(abs(T))
     end
 
     G11 = z->a/N
