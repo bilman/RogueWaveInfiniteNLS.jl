@@ -88,7 +88,8 @@ function arcpoints_largeX(X,v)
         CONFIG = 1  # This is a flag that gets returned.
         # zinf=rootlist[3] is not needed.
         arcpointsOut = [z1, z1 + outrad*exp(3im*pi/4), 0.5*(z1+z2) + outrad*1im, z2 + outrad*exp(1im*pi/4), z2]
-    elseif VKILL1<=v<min(VKILL2, X^(-1/3))
+    # elseif VKILL1<=v<min(VKILL2, X^(-1/3))
+    elseif VKILL1<=v<VKILL2
         CONFIG = 2
         polyθ = Polynomial([-2,0,1,2*v])
         rootlist = Polynomials.roots(polyθ) |> reverse
