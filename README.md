@@ -1,7 +1,7 @@
 # RogueWaveInfiniteNLS.jl
 Julia package for computing the general rogue waves of infinite order for the focusing nonlinear Schrodinger equation.
 This is a family of special solutions of the focusing nonlinear equation denoted by $\Psi(X,T;\mathbf{G},\beta)$, whose exact and asymptotic properties (in different regimes where $(X,T)\in\mathbb{R}^2$ becomes large) were studied recently in the manuscript *Asymptotic properties of general rogue waves of infinite order* [Bilman&Miller, 2024]. Importantly these solutions all lie in $L^2(\mathbb{R})$ and they exhibit quite slow temporal decay: $\Psi(X,T;\mathbf{G},\beta)\sim |T|^{-1/3}$ as $T\to\pm\infty$.
-This solution depends parametrically on a $2\times 2$ matrix $\mathbf{G}$ and a scalar $\beta>0$. The matrix $\mathbf{G}$ is given by 
+The family of solutions is parametrized by a $2\times 2$ matrix $\mathbf{G}$ and a scalar $\beta>0$. The matrix $\mathbf{G}$ is given by 
 ```math
 \mathbf{G}=\mathbf{G}(a,b)=\frac{1}{\sqrt{|a|^2+|b|^2}}\begin{bmatrix} a & b^* \\ -b & a^* \end{bmatrix},\quad a,b\in\mathbb{C}\setminus\{0\},
 ```
