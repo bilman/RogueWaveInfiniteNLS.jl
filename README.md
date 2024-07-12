@@ -1,7 +1,7 @@
 [![Build status (Github Actions)](https://github.com/bilman/RogueWaveInfiniteNLS.jl/workflows/CI/badge.svg)](https://github.com/bilman/RogueWaveInfiniteNLS.jl/actions) [![codecov.io](http://codecov.io/github/bilman/RogueWaveInfiniteNLS.jl/coverage.svg?branch=main)](http://codecov.io/github/bilman/RogueWaveInfiniteNLS.jl?branch=main)
 
 # RogueWaveInfiniteNLS.jl
-Julia package for computing the general rogue waves of infinite order for the focusing nonlinear Schrodinger equation.
+Julia package for computing the general rogue waves of infinite order for the focusing nonlinear Schrödinger equation.
 This is a family of special solutions of the focusing nonlinear equation denoted by $\Psi(X,T;\mathbf{G},\beta)$, whose exact and asymptotic properties (in different regimes where $(X,T)\in\mathbb{R}^2$ becomes large) were studied recently in the manuscript 
 
 *General rogue waves of infinite order: exact properties, asymptotic behavior, and effective numerical computation* [D. Bilman & P. D. Miller, 2024]. 
