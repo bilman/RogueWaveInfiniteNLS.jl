@@ -1,4 +1,4 @@
-[![Build status (Github Actions)](https://github.com/bilman/RogueWaveInfiniteNLS.jl/workflows/CI/badge.svg)](https://github.com/bilman/RogueWaveInfiniteNLS.jl/actions) [![codecov.io](http://codecov.io/github/bilman/RogueWaveInfiniteNLS.jl/coverage.svg?branch=main)](http://codecov.io/github/bilman/RogueWaveInfiniteNLS.jl?branch=main) [![DOI](https://zenodo.org/badge/804831603.svg)](https://zenodo.org/doi/10.5281/zenodo.12743088)
+[![Build status (Github Actions)](https://github.com/bilman/RogueWaveInfiniteNLS.jl/workflows/CI/badge.svg)](https://github.com/bilman/RogueWaveInfiniteNLS.jl/actions) [![codecov](https://codecov.io/github/bilman/RogueWaveInfiniteNLS.jl/graph/badge.svg?token=QQGPCICP3P)](https://codecov.io/github/bilman/RogueWaveInfiniteNLS.jl) [![DOI](https://zenodo.org/badge/804831603.svg)](https://zenodo.org/doi/10.5281/zenodo.12743088)
 
 # RogueWaveInfiniteNLS.jl
 Julia package for computing the general rogue waves of infinite order for the focusing nonlinear Schrödinger equation.
