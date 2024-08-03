@@ -183,7 +183,7 @@ function psi(X,T,a,b,β)
     Xsc = β*X
     Tsc = β^2*T
     v = vfromXT(abs(Xsc), abs(Tsc))
-    w = wfromXT(abs(Xsc), abs(Xsc))
+    w = wfromXT(abs(Xsc), abs(Tsc))
     # Never pass in the rescaled X,T values. The underlying routines work with those.
     if Xsc^2 + Tsc^2 <= 4.
         # (X,T) is in a small disk, so no deformation needed.
