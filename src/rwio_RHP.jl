@@ -316,6 +316,7 @@ function rwio_largeX_RHP(X,v,a,b, npts::Integer)
     u1 = rhp_solver([1 0],numarcs*npts)
     u2 = rhp_solver([0 1],numarcs*npts)
     U = rhp_solver(([1 0], [0 1]), numarcs*npts)
+    GC.gc()
     U = hcat(U...) |> transpose |> Matrix
     Usums = sum.(U)
     nls = -(1/π)*Usums[1,2]
@@ -379,6 +380,7 @@ function rwio_largeX(X,v,a,b, npts::Integer)
     # u1 = rhp_solver([1 0],numarcs*npts)
     # u2 = rhp_solver([0 1],numarcs*npts)
     U = rhp_solver(([1 0], [0 1]), numarcs*npts)
+    GC.gc()
     U = hcat(U...) |> transpose |> Matrix
     Usums = sum.(U)
     nls = -(1/π)*Usums[1,2];
@@ -488,6 +490,7 @@ function rwio_Painleve_RHP(X,v,a,b,npts::Integer)
     u1 = rhp_solver([1 0],numarcs*npts)
     u2 = rhp_solver([0 1],numarcs*npts)
     U = rhp_solver(([1 0], [0 1]), numarcs*npts)
+    GC.gc()
     U = hcat(U...) |> transpose |> Matrix
     Usums = sum.(U)
     nls = -(1/π)*Usums[1,2]
