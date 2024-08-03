@@ -206,7 +206,7 @@ function psi(X,T,a,b,β)
         # Above the level T=8. All deformations are employed
         # But the large-X deformation is employed.
         # if (v>VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)
-        if (v>VCRIT) && (w<=0.98*WCRIT)
+        if (v>VCRIT) && (w<0.98*WCRIT)
             # println("Above T=8 and large-T deformation.")
             psi_largeT(X, T, a, b, β, LARGET_PTS)
         elseif (v<VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)
