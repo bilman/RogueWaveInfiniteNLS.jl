@@ -25,16 +25,16 @@ using Test
 end
 
 @testset "RogueWaveInfiniteNLS.jl: Large-X deformations test" begin
-    atest = 1
-    btest = 1
+    atest = 1.0
+    btest = 1.0
     Xtest = 2.5
     Ttest = 0.15
     vtest = vfromXT(Xtest,Ttest)
     truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_largeX(Xtest, vtest, atest, btest, LARGEX_PTS) - truth) < 1e-10
 
-    atest = 1
-    btest = -1+3im
+    atest = 1.0
+    btest = -1.0+3.0im
     Xtest = 2.5
     Ttest = 0.15
     vtest = vfromXT(Xtest,Ttest)
@@ -44,16 +44,16 @@ end
 
 
 @testset "RogueWaveInfiniteNLS.jl: Large-T deformations test" begin
-    atest = 1
-    btest = 1
+    atest = 1.0
+    btest = 1.0
     Xtest = 0.5
     Ttest = 1.2
     wtest = wfromXT(Xtest,Ttest)
     truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_largeT(Ttest, wtest, atest, btest, LARGET_PTS) - truth) < 1e-10
 
-    atest = 1
-    btest = -1+3im
+    atest = 1.0
+    btest = -1.0+3.0im
     Xtest = 0.5
     Ttest = 1.2
     vtest = vfromXT(Xtest,Ttest)
@@ -62,16 +62,16 @@ end
 end
 
 @testset "RogueWaveInfiniteNLS.jl: Painlevé deformations test" begin
-    atest = 1
-    btest = 1
+    atest = 1.0
+    btest = 1.0
     vtest = VCRIT
     Ttest = 1.2
     Xtest = XfromTw(Ttest, WCRIT)
     truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_Painleve(Xtest, vtest, atest, btest, LARGEX_PTS) - truth) < 1e-10
 
-    atest = 1
-    btest = -1+3im
+    atest = 1.0
+    btest = -1.0+3.0im
     vtest = VCRIT
     Ttest = 1.2
     Xtest = XfromTw(Ttest, WCRIT)
@@ -80,8 +80,8 @@ end
 end
 
 @testset "RogueWaveInfiniteNLS.jl: Painlevé vs Large-X test" begin
-    atest = 1
-    btest = -1+3im
+    atest = 1.0
+    btest = -1.0+3.0im
     vtest = VCRIT*0.99
     Xtest = 400
     Ttest = TfromXv(Xtest, vtest)
@@ -91,8 +91,8 @@ end
 end
 
 @testset "RogueWaveInfiniteNLS.jl: Painlevé vs Large-T test" begin
-    atest = 1-2im
-    btest = 3+4im
+    atest = 1.0-2.0im
+    btest = 3.0+4.0im
     Ttest = 400
     wtest = WCRIT*0.95
     Xtest=XfromTw(Ttest,wtest)
@@ -103,8 +103,8 @@ end
 end
 
 @testset "RogueWaveInfiniteNLS.jl: The symmetry used in the 2nd quadrant" begin
-    atest = 2+4im
-    btest = -1+3im
+    atest = 2.0+4.0im
+    btest = -1.0+3.0im
     Xtest = -1.
     Ttest = 0.35
     truth = rwio_nodeformation_rescaled(Xtest, Ttest, atest, btest, NODEF_PTS)
@@ -114,8 +114,8 @@ end
 
 
 @testset "RogueWaveInfiniteNLS.jl: The symmetry used in the 3rd quadrant" begin
-    atest = 2+4im
-    btest = -1+3im
+    atest = 2.0+4.0im
+    btest = -1.0+3.0im
     Xtest = -1.
     Ttest = -0.35
     truth = rwio_nodeformation_rescaled(Xtest, Ttest, atest, btest, NODEF_PTS)
@@ -124,8 +124,8 @@ end
 end
 
 @testset "RogueWaveInfiniteNLS.jl: The symmetry used in the 4th quadrant" begin
-    atest = 2+4im
-    btest = -1+3im
+    atest = 2.0+4.0im
+    btest = -1.0+3.0im
     Xtest = 1.
     Ttest = -0.35
     truth = rwio_nodeformation_rescaled(Xtest, Ttest, atest, btest, NODEF_PTS)
