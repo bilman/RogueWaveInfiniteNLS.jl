@@ -2,9 +2,14 @@
 # rwio.jl
 # include("rwio_RHP.jl")
 # using rwio_RHP
-global const NODEF_PTS = 800
-global const LARGEX_PTS = 280
-global const LARGET_PTS = 280
+
+# The changes below are due to the renaming the number of points used on each arc in all the rwio_foo() routines.
+# global const NODEF_PTS = 800
+global const NODEF_PTS = 400
+# global const LARGEX_PTS = 280
+global const LARGEX_PTS = 140
+# global const LARGET_PTS = 280
+global const LARGET_PTS = 140
 
 # Compute RWIO Q(X,T;a,b,\beta) in the first quadrant Q1
 

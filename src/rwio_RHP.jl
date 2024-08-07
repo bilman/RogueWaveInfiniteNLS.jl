@@ -138,8 +138,9 @@ mkfun = y -> mvf2mof(y,2,2)
 
 # Compute RWIO without any deformation
 
-function rwio_nodeformation_RHP(X,T,a,b,npts::Integer)
+function rwio_nodeformation_RHP(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
+    npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)
     θ = z->X*z+T*z^2+2/z
 
@@ -165,8 +166,9 @@ function rwio_nodeformation_RHP(X,T,a,b,npts::Integer)
 end
 
 
-function rwio_nodeformation(X,T,a,b,npts::Integer)
+function rwio_nodeformation(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
+    npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)
     θ = z->X*z+T*z^2+2/z
 
@@ -192,8 +194,9 @@ function rwio_nodeformation(X,T,a,b,npts::Integer)
     return nls
 end
 
-function rwio_nodeformation_rescaled_RHP(X,T,a,b,npts::Integer)
+function rwio_nodeformation_rescaled_RHP(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
+    npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)
     θ = z->X*z+T*z^2+2/z
     if abs(T)<=1.
@@ -226,8 +229,9 @@ function rwio_nodeformation_rescaled_RHP(X,T,a,b,npts::Integer)
     # return Usums, Usums
 end
 
-function rwio_nodeformation_rescaled(X,T,a,b,npts::Integer)
+function rwio_nodeformation_rescaled(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
+    npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)
     θ = z->X*z+T*z^2+2/z
     if abs(T)<=1.
@@ -261,7 +265,8 @@ end
 
 # Compute RWIO with large-X deformations
 
-function rwio_largeX_RHP(X,v,a,b, npts::Integer)
+function rwio_largeX_RHP(X,v,a,b, numpts::Integer)
+    npts = 2*numpts
     XX = sqrt(X)
     if v >= VCRIT
         println("v value is too large.")
@@ -325,7 +330,8 @@ function rwio_largeX_RHP(X,v,a,b, npts::Integer)
 end
 
 
-function rwio_largeX(X,v,a,b, npts::Integer)
+function rwio_largeX(X,v,a,b, numpts::Integer)
+    npts = 2*numpts
     XX = sqrt(X)
     if v >= VCRIT
         println("v value is too large.")
@@ -388,7 +394,8 @@ function rwio_largeX(X,v,a,b, npts::Integer)
     return nls
 end
 
-function rwio_largeX_NOFRAKS(X,v,a,b, npts::Integer)
+function rwio_largeX_NOFRAKS(X,v,a,b, numpts::Integer)
+    npts = 2*numpts
     XX = sqrt(X)
     if v >= VCRIT
         println("v value is too large.")
@@ -452,7 +459,8 @@ function rwio_largeX_NOFRAKS(X,v,a,b, npts::Integer)
 end
 
 
-function rwio_Painleve_RHP(X,v,a,b,npts::Integer)
+function rwio_Painleve_RHP(X,v,a,b,numpts::Integer)
+    npts = 2*numpts
     XX = sqrt(X)
     afrak = abs(a)/sqrt(abs(a)^2 + abs(b)^2)
     bfrak = abs(b)/sqrt(abs(a)^2 + abs(b)^2)
@@ -498,7 +506,8 @@ function rwio_Painleve_RHP(X,v,a,b,npts::Integer)
     return nls, rhp, rhp_solver, U, u1, u2
 end
 
-function rwio_Painleve(X,v,a,b,npts::Integer)
+function rwio_Painleve(X,v,a,b,numpts::Integer)
+    npts = 2*numpts
     XX = sqrt(X)
     afrak = abs(a)/sqrt(abs(a)^2 + abs(b)^2)
     bfrak = abs(b)/sqrt(abs(a)^2 + abs(b)^2)
@@ -546,7 +555,8 @@ end
 
 # Compute RWIO with large-T deformations
 
-function rwio_largeT_RHP(T,w,a,b, npts::Integer)
+function rwio_largeT_RHP(T,w,a,b, numpts::Integer)
+    npts = 2*numpts
     TT = T^(1/3)
     θ = z -> w*z+z^2+2/z
     if w >= WCRIT
@@ -800,7 +810,8 @@ function rwio_largeT_RHP(T,w,a,b, npts::Integer)
 end
 
 
-function rwio_largeT(T,w,a,b, npts::Integer)
+function rwio_largeT(T,w,a,b, numpts::Integer)
+    npts = 2*numpts
     TT = T^(1/3)
     # θ = z -> w*z+z^2+2/z
     if w >= WCRIT
