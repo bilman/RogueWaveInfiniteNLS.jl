@@ -1,7 +1,7 @@
 name = "RogueWaveInfiniteNLS"
 uuid = "deca77a3-49e2-4fa7-ba04-95ade2bf29f1"
 authors = ["Deniz Bilman <bilman@uc.edu>"]
-version = "0.1.2"
+version = "0.1.3"
 
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
@@ -10,7 +10,7 @@ Polynomials = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
-OperatorApproximation = "0.1.3"
+OperatorApproximation = "0.1.2"
 Polynomials = "4.0.0"
 Test = "1.6"
 julia = "^1"
