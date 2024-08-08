@@ -138,7 +138,7 @@ mkfun = y -> mvf2mof(y,2,2)
 
 # Compute RWIO without any deformation
 
-function rwio_nodeformation_RHP(X,T,a,b,numpts::Integer)
+function rwio_undeformed_Raw_RHP(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
     npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)
@@ -166,7 +166,7 @@ function rwio_nodeformation_RHP(X,T,a,b,numpts::Integer)
 end
 
 
-function rwio_nodeformation(X,T,a,b,numpts::Integer)
+function rwio_undeformed_Raw(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
     npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)
@@ -194,7 +194,7 @@ function rwio_nodeformation(X,T,a,b,numpts::Integer)
     return nls
 end
 
-function rwio_nodeformation_rescaled_RHP(X,T,a,b,numpts::Integer)
+function rwio_undeformed_RHP(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
     npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)
@@ -229,7 +229,7 @@ function rwio_nodeformation_rescaled_RHP(X,T,a,b,numpts::Integer)
     # return Usums, Usums
 end
 
-function rwio_nodeformation_rescaled(X,T,a,b,numpts::Integer)
+function rwio_undeformed(X,T,a,b,numpts::Integer)
     # tau = abs(b/conj(a))
     npts = 2*numpts
     N = sqrt(abs(a)^2+abs(b)^2)

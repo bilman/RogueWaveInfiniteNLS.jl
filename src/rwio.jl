@@ -13,10 +13,10 @@ global const LARGET_PTS = 140
 
 # Compute RWIO Q(X,T;a,b,\beta) in the first quadrant Q1
 
-function psi_nodeformation_rescaled_Q1(X,T,a,b,β,npts::Integer)
+function psi_undeformed_Q1(X,T,a,b,β,npts::Integer)
     # Xsc = β*X
     # Tsc = β^2*T
-    return(β*rwio_nodeformation_rescaled(β*X,β^2*T,a,b,npts))
+    return(β*rwio_undeformed(β*X,β^2*T,a,b,npts))
 end
 
 function psi_largeX_Q1(X,T,a,b,β,npts::Integer)
@@ -40,10 +40,10 @@ end
 
 # Compute RWIO Q(X,T;a,b,\beta) in the second quadrant Q2
 
-function psi_nodeformation_rescaled_Q2(X,T,a,b,β,npts::Integer)
+function psi_undeformed_Q2(X,T,a,b,β,npts::Integer)
     # Xsc = β*X
     # Tsc = β^2*T
-    return(β*rwio_nodeformation_rescaled(β*abs(X),β^2*T,b,a,npts))
+    return(β*rwio_undeformed(β*abs(X),β^2*T,b,a,npts))
 end
 
 function psi_largeX_Q2(X,T,a,b,β,npts::Integer)
@@ -67,10 +67,10 @@ end
 
 # Compute RWIO Q(X,T;a,b,\beta) in the fourth quadrant Q4
 
-function psi_nodeformation_rescaled_Q4(X,T,a,b,β, npts::Integer)
+function psi_undeformed_Q4(X,T,a,b,β, npts::Integer)
     # Xsc = β*X
     # Tsc = β^2*T
-    return conj(β*rwio_nodeformation_rescaled(β*X,β^2*abs(T),conj(a),conj(b),npts))
+    return conj(β*rwio_undeformed(β*X,β^2*abs(T),conj(a),conj(b),npts))
 end
 
 function psi_largeX_Q4(X,T,a,b,β,npts::Integer)
@@ -91,10 +91,10 @@ end
 
 # Compute RWIO Q(X,T;a,b,\beta) in the third quadrant Q3
 
-function psi_nodeformation_rescaled_Q3(X,T,a,b,β,numpts::Integer)
+function psi_undeformed_Q3(X,T,a,b,β,numpts::Integer)
     # Xsc = β*X
     # Tsc = β^2*T
-    return conj(β*rwio_nodeformation_rescaled(β*abs(X),β^2*abs(T),conj(b),conj(a),numpts))
+    return conj(β*rwio_undeformed(β*abs(X),β^2*abs(T),conj(b),conj(a),numpts))
 end
 
 function psi_largeX_Q3(X,T,a,b,β,numpts::Integer)
@@ -117,20 +117,20 @@ end
 
 # Combine the routines in the quadrants to compute Q(X,T,[a,b],β)
 
-function psi_nodeformation_rescaled(X,T,a,b,β,numpts::Integer)
+function psi_undeformed(X,T,a,b,β,numpts::Integer)
     # Xsc = β*X
     # Tsc = β^2*T
     # return β*nlsnodeformationRescaledT(β*X,β^2*T,a,b)
     # Scaling is done in the routines that compute for the given quadrants.
     # So we just pass (X,T,β) as they are: Given (X,T) and some β>0.
     if T>=0 && X>=0
-        return psi_nodeformation_rescaled_Q1(X,T,a,b,β, numpts)
+        return psi_undeformed_Q1(X,T,a,b,β, numpts)
     elseif T>=0 && X<0
-        return psi_nodeformation_rescaled_Q2(X,T,a,b,β, numpts)
+        return psi_undeformed_Q2(X,T,a,b,β, numpts)
     elseif T<0 && X<0
-        return psi_nodeformation_rescaled_Q3(X,T,a,b,β, numpts)
+        return psi_undeformed_Q3(X,T,a,b,β, numpts)
     elseif T<0 && X>=0
-        return psi_nodeformation_rescaled_Q4(X,T,a,b,β, numpts)
+        return psi_undeformed_Q4(X,T,a,b,β, numpts)
     end
 end
 
@@ -193,13 +193,13 @@ function psi(X,T,a,b,β)
     if Xsc^2 + Tsc^2 <= 4.
         # (X,T) is in a small disk, so no deformation needed.
         # println("No deformation")
-        return psi_nodeformation_rescaled(X, T, a, b, β, NODEF_PTS)
+        return psi_undeformed(X, T, a, b, β, NODEF_PTS)
     elseif abs(Tsc)<=8.
         # Below the level T=8. No deformation is used in the large-T domain.
         # But the large-X deformation is employed since this region is a horizontal strip.
         if (v>VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)
             # println("Below T=8 but no deformation.")
-            psi_nodeformation_rescaled(X, T, a, b, β, NODEF_PTS)
+            psi_undeformed(X, T, a, b, β, NODEF_PTS)
         elseif (v<VCRIT) && (abs(v-VCRIT)>VDISTANCEPAINLEVE)
             # println("Below T=8 and large-X deformation.")
             psi_largeX(X, T, a, b, β, LARGEX_PTS)
@@ -227,7 +227,7 @@ end
 # This is used for T=0 to compute the elliptic spread.
 function Psi_slice_T0(X,a,b,β)
     if X<=8.
-        return psi_nodeformation_rescaled(X,0,a,b,β,NODEF_PTS)
+        return psi_undeformed(X,0,a,b,β,NODEF_PTS)
     else
         return psi_largeX(X,0,a,b,β,LARGEX_PTS)
     end
