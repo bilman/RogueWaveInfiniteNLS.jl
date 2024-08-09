@@ -30,7 +30,7 @@ end
     Xtest = 2.5
     Ttest = 0.15
     vtest = vfromXT(Xtest,Ttest)
-    truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_largeX(Xtest, vtest, atest, btest, LARGEX_PTS) - truth) < 1e-10
 
     atest = 1.0
@@ -38,7 +38,7 @@ end
     Xtest = 2.5
     Ttest = 0.15
     vtest = vfromXT(Xtest,Ttest)
-    truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_largeX(Xtest, vtest, atest, btest, LARGEX_PTS) - truth) < 1e-10
 end
 
@@ -49,7 +49,7 @@ end
     Xtest = 0.5
     Ttest = 1.2
     wtest = wfromXT(Xtest,Ttest)
-    truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_largeT(Ttest, wtest, atest, btest, LARGET_PTS) - truth) < 1e-10
 
     atest = 1.0
@@ -57,7 +57,7 @@ end
     Xtest = 0.5
     Ttest = 1.2
     vtest = vfromXT(Xtest,Ttest)
-    truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_largeT(Ttest, wtest, atest, btest, LARGET_PTS) - truth) < 1e-10
 end
 
@@ -67,7 +67,7 @@ end
     vtest = VCRIT
     Ttest = 1.2
     Xtest = XfromTw(Ttest, WCRIT)
-    truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_Painleve(Xtest, vtest, atest, btest, LARGEX_PTS) - truth) < 1e-10
 
     atest = 1.0
@@ -75,7 +75,7 @@ end
     vtest = VCRIT
     Ttest = 1.2
     Xtest = XfromTw(Ttest, WCRIT)
-    truth = rwio_nodeformation_rescaled(Xtest,Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest,Ttest, atest, btest, NODEF_PTS)
     @test abs(rwio_Painleve(Xtest, vtest, atest, btest, LARGEX_PTS) - truth) < 1e-10
 end
 
@@ -107,7 +107,7 @@ end
     btest = -1.0+3.0im
     Xtest = -1.
     Ttest = 0.35
-    truth = rwio_nodeformation_rescaled(Xtest, Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest, Ttest, atest, btest, NODEF_PTS)
     testval = psi(Xtest, Ttest, atest, btest, 1)
     @test abs(testval - truth) < 1e-10
 end
@@ -118,7 +118,7 @@ end
     btest = -1.0+3.0im
     Xtest = -1.
     Ttest = -0.35
-    truth = rwio_nodeformation_rescaled(Xtest, Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest, Ttest, atest, btest, NODEF_PTS)
     testval = psi(Xtest, Ttest, atest, btest, 1)
     @test abs(testval - truth) < 1e-10
 end
@@ -128,7 +128,7 @@ end
     btest = -1.0+3.0im
     Xtest = 1.
     Ttest = -0.35
-    truth = rwio_nodeformation_rescaled(Xtest, Ttest, atest, btest, NODEF_PTS)
+    truth = rwio_undeformed(Xtest, Ttest, atest, btest, NODEF_PTS)
     testval = psi(Xtest, Ttest, atest, btest, 1)
     @test abs(testval - truth) < 1e-10
 end
